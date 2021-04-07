@@ -1,0 +1,14 @@
+read a message by ID - will mark the message as read
+---
+tags:
+    - messages
+parameters:
+    - in: path
+      name: message_id
+      type: integer
+      required: true
+responses:
+    200:
+        description: OK
+        schema:
+            $ref: '#/definitions/Message'

@@ -1,0 +1,21 @@
+create new message
+---
+tags:
+    - messages
+produces:
+    - application/json
+parameters:
+    - in: body
+      name: body
+      required: true
+      schema:
+          $ref: '#/definitions/Message'
+responses:
+    '200':
+        description: Get the newly created message
+        responses:
+            200:
+                schema:
+                    $ref: '#/definitions/Message'
+    '400':
+        description: Invalid request

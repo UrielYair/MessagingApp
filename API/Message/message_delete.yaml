@@ -1,0 +1,16 @@
+delete message by ID
+---
+tags:
+    - messages
+parameters:
+    - in: path
+      name: message_id
+      type: integer
+      required: true
+responses:
+    '200':
+        description: successful operation - message deleted and deleted message will be return.
+        schema:
+            $ref: '#/definitions/Message'
+    '400':
+        description: Invalid request

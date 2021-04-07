@@ -1,0 +1,14 @@
+get all unread messages by username
+---
+tags:
+    - users
+parameters:
+    - in: path
+      name: username
+      type: string
+      required: true
+responses:
+    200:
+        description: OK
+        schema:
+            $ref: '#/definitions/Message'
