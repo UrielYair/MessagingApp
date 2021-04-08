@@ -9,13 +9,24 @@ parameters:
       name: body
       required: true
       schema:
-          $ref: '#/definitions/Message'
+          type: object
+          properties:
+              sender:
+                  type: string
+                  example: Uriel
+              receiver:
+                  type: string
+                  example: Uriel
+              subject:
+                  type: string
+                  example: subject
+              message:
+                  type: string
+                  example: Hello World
 responses:
     '200':
         description: Get the newly created message
-        responses:
-            200:
-                schema:
-                    $ref: '#/definitions/Message'
+        schema:
+            $ref: '#/definitions/Message'
     '400':
         description: Invalid request
