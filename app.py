@@ -10,8 +10,8 @@ def create_app():
     app = Flask(__name__)
 
     # Configure SQLAlchemy
-    app.config['SQLALCHEMY_DATABASE_URI'] = environ.get(
-        'DATABASE_URL') or 'sqlite:///database.sqlite.db'
+    app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DATABASE_URL').replace(
+        "://", "ql://", 1) or 'sqlite:///database.sqlite.db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     # SQLAlchemy and Marshmallow initiation:
