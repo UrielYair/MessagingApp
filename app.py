@@ -22,33 +22,6 @@ def create_app():
     app.register_blueprint(message_blueprint, url_prefix="/api")
     app.register_blueprint(user_blueprint, url_prefix="/api")
 
-    #######################################
-    # from flasgger import APISpec, Schema, Swagger, fields
-    # from apispec.ext.marshmallow import MarshmallowPlugin
-    # from apispec_webframeworks.flask import FlaskPlugin
-
-    # # Create an APISpec
-    # spec = APISpec(
-    #     title='Messaging App',
-    #     version='1.0',
-    #     openapi_version='2.0',
-    #     plugins=[FlaskPlugin(), MarshmallowPlugin()]
-    # )
-
-    # from models.Message import MessageSchema
-
-    # template = spec.to_flasgger(
-    #     app,
-    #     definitions=[MessageSchema],
-    # )
-
-    # # set the UIVERSION to 3
-    # app.config['SWAGGER'] = {'uiversion': 3}
-
-    # # start Flasgger using a template from apispec
-    # swag = Swagger(app, template=template)
-    #######################################
-
     return app
 
 
