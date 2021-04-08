@@ -3,15 +3,19 @@ from API.Message.message_blueprint import *
 from API.User.user_blueprint import *
 from swag_ui import swag_init
 from models.Database import db, ma
-from os import environ
+import os
 
 
 def create_app():
     app = Flask(__name__)
 
     # Configure SQLAlchemy
-    app.config['SQLALCHEMY_DATABASE_URI'] = environ.get(
-        'DATABASE_URL', 'sqlite:///database.sqlite.db')
+    if 'DATABASE_URL' in os.environ:
+        app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
+            'DATABASE_URL').replace("://", "ql://", 1)
+    else:
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.sqlite.db'
+
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     # SQLAlchemy and Marshmallow initiation:
